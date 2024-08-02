@@ -133,3 +133,6 @@ $RECYCLE.BIN/
 
 # Logs
 *.log
+
+# .idea
+.idea/
