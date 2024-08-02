@@ -1,0 +1,1 @@
+dht_pin: D4  # GPIO pin connected to the DHT22 data pin

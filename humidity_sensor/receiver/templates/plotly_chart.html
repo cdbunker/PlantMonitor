@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Humidity Data</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .stat {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Plant Humidity Data</h1>
+    <div class="stats">
+        <div class="stat">Current Temperature: {{ current_temp }} °C</div>
+        <div class="stat">Current Humidity: {{ current_hum }} %</div>
+        <div class="stat">Average 1-Day Temperature: {{ average_temp }} °C</div>
+        <div class="stat">Average 1-Day Humidity: {{ average_hum }} %</div>
+    </div>
+    <div>{{ chart_html | safe }}</div>
+</body>
+</html>

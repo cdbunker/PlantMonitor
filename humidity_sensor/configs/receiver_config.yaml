@@ -1,0 +1,5 @@
+host: '0.0.0.0'  # Listen on all available network interfaces
+port: 5000
+data_log_path: '/home/colin/humidity_data/data_log.txt'
+chart_padding: 2
+chart_number_ticks: 25
