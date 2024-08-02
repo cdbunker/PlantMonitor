@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Monitor</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Plant Monitor Data</h1>
+    <div id="chart"></div>
+    <script>
+        var graphs = {{ graphJSON | safe }};
+        Plotly.plot('chart', graphs.data, graphs.layout);
+    </script>
+</body>
+</html>

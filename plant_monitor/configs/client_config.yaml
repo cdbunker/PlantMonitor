@@ -1,5 +1,0 @@
-server_ip: '192.168.1.86'  # Replace with the IP address of the receiver
-server_port: 5000
-# delay param
-log_delay: 2
-local_log_path: '/home/colin/humidity_data/data_log.txt'

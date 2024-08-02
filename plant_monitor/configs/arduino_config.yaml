@@ -1,0 +1,4 @@
+arduino_ports:
+  - '/dev/ttyUSB0'  # Add all the ports your Arduinos are connected to
+  - '/dev/ttyUSB1'
+baud_rate: 9600
