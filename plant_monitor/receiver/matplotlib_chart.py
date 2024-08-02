@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
 
+
 def matplotlib_chart(data_processor):
     times, temperatures, humidities = data_processor.load_data()
     try:

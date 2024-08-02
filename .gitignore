@@ -136,3 +136,6 @@ $RECYCLE.BIN/
 
 # .idea
 .idea/
+
+# scratch files
+scratch/

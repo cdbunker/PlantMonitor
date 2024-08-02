@@ -1,4 +1,4 @@
-from client import Client
+from plant_monitor.client import Client
 
 
 def run():

@@ -12,12 +12,19 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'smbus2',
-        'flask',
-        'plotly',
-        'matplotlib',
-        'adafruit-circuitpython-dht',
+        'pyyaml',
+
     ],
+    extras_require={
+        'client': [
+            'smbus2',
+        ],
+        'receiver': [
+            'flask',
+            'plotly',
+            'matplotlib',
+        ],
+    },
     entry_points={
         'console_scripts': [
             'client_app=plant_monitor.client_app:run',

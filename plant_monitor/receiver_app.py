@@ -1,5 +1,4 @@
 import os
-import yaml
 from flask import Flask
 from plant_monitor import CONFIGS_PATH
 from plant_monitor.receiver.config import Config
