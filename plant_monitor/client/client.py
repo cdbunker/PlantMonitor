@@ -3,7 +3,7 @@ from datetime import datetime
 from .config import Config
 from .logger import Logger
 from .sender import Sender
-from sensor import DHT22Sensor, SHT30Sensor
+from plant_monitor.sensor import DHT22Sensor, SHT30Sensor
 
 
 class Client:

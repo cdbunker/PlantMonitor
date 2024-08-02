@@ -8,7 +8,7 @@ class DataProcessor:
 
     def receive_data(self):
         data = request.get_json()
-        if data:
+        if data is not None and data['temperature'] is not None and data['humidity'] is not None:
             with open(self.config.data_log_path, 'a') as f:
                 f.write(json.dumps(data) + '\n')
             print(f"Received data: Time: {data['time']}, Temperature: {data['temperature']} C, Humidity: {data['humidity']}%")

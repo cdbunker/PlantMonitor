@@ -1,17 +1,17 @@
-import os
-import adafruit_dht
-import board
+from .base_humidity_sensor import BaseHumiditySensor
+from .base_temperature_sensor import BaseTemperatureSensor
+from plant_monitor.utilities import celcius_to_fahrenheit
 import yaml
+import board
+import adafruit_dht
 
 
-def celcius_to_fahrenheit(temperature_in_celcius):
-    return temperature_in_celcius * 9.0 / 5.0 + 32
-
-
-class Sensor:
+class DHT22Sensor(BaseHumiditySensor, BaseTemperatureSensor):
     def __init__(self, config_path):
+        super().__init__()
         with open(config_path, 'r') as file:
             config = yaml.safe_load(file)
+
         self.pin_number = config['dht_pin']
         self.pin = getattr(board, str(self.pin_number))
         self.sensor = adafruit_dht.DHT22(self.pin)
@@ -22,13 +22,6 @@ class Sensor:
             temperature_celcius = self.sensor.temperature
             temperature_fahrenheit = celcius_to_fahrenheit(temperature_celcius)
             return {'temperature': temperature_fahrenheit, 'humidity': humidity}
-        except RuntimeError as error:
-            print(f"Sensor reading error: {error}")
+        except RuntimeError as e:
+            print(f"Error reading DHT22 sensor: {e}")
             return {'temperature': None, 'humidity': None}
-
-
-if __name__ == '__main__':
-    sensor_config_path = os.path.join(os.path.dirname(__file__), 'configs/sensor_config.yaml')
-    print(f"Using sensor config path: {sensor_config_path}")
-    sensor = Sensor(config_path=sensor_config_path)
-    print(sensor.read())

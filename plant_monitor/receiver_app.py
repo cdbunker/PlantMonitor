@@ -1,11 +1,11 @@
 import os
 import yaml
 from flask import Flask
-from app_params import CONFIGS_PATH
-from receiver.config import Config
-from receiver.plotly_chart import plotly_chart
-from receiver.data_processor import DataProcessor
-from receiver.matplotlib_chart import matplotlib_chart
+from plant_monitor import CONFIGS_PATH
+from plant_monitor.receiver.config import Config
+from plant_monitor.receiver.plotly_chart import plotly_chart
+from plant_monitor.receiver.data_processor import DataProcessor
+from plant_monitor.receiver.matplotlib_chart import matplotlib_chart
 
 
 def create_app(config_path):
@@ -33,7 +33,7 @@ def setup_routes(app, data_processor):
         return matplotlib_chart(data_processor)
 
 
-if __name__ == '__main__':
+def run():
     config_path = os.path.join(CONFIGS_PATH, 'receiver_config.yaml')
     config = Config(config_path)
 
@@ -43,3 +43,7 @@ if __name__ == '__main__':
     setup_routes(app, data_processor)
 
     app.run(host=config.host, port=config.port, debug=True)
+
+
+if __name__ == '__main__':
+    run()
