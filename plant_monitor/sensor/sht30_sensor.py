@@ -30,6 +30,6 @@ class SHT30Sensor(BaseHumiditySensor, BaseTemperatureSensor):
 
 
 
-from plant_monitor import CONFIGS_PATH
-
-sensor = SHT30Sensor(CONFIGS_PATH / 'sensor_config.yaml')
+if __name__ == '__main__':
+    sensor = SHT30Sensor('configs/sensor_config.yaml')
+    print(sensor.read())
