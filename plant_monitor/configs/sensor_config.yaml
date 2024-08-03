@@ -1,1 +1,2 @@
 dht_pin: D4  # GPIO pin connected to the DHT22 data pin
+i2c_address: 0x44  # I2C address of the SHT30 sensor

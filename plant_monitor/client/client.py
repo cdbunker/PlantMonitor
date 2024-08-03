@@ -1,8 +1,8 @@
 import time
 from datetime import datetime
-from .config import Config
-from .logger import Logger
-from .sender import Sender
+from plant_monitor.client.config import Config
+from plant_monitor.client.logger import Logger
+from plant_monitor.client.sender import Sender
 from plant_monitor.sensor import DHT22Sensor, SHT30Sensor
 
 

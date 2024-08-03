@@ -1,5 +1,5 @@
-from .base_humidity_sensor import BaseHumiditySensor
-from .base_temperature_sensor import BaseTemperatureSensor
+from plant_monitor.sensor.base_humidity_sensor import BaseHumiditySensor
+from plant_monitor.sensor.base_temperature_sensor import BaseTemperatureSensor
 import time
 import yaml
 import smbus2
@@ -27,3 +27,9 @@ class SHT30Sensor(BaseHumiditySensor, BaseTemperatureSensor):
         humidity = 100 * (humidity / 65535.0)
 
         return {'temperature': temperature, 'humidity': humidity}
+
+
+
+from plant_monitor import CONFIGS_PATH
+
+sensor = SHT30Sensor(CONFIGS_PATH / 'sensor_config.yaml')
